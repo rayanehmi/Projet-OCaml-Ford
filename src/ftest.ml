@@ -1,4 +1,8 @@
 open Gfile
+open Tools
+open Graph
+
+
 
 let () =
 
@@ -25,6 +29,8 @@ let () =
 
   (* Rewrite the graph that has been read. *)
   let () = write_file outfile graph in
+
+  (*let graph graph1 = [ (0, [1,2]), (1,[0,2]),(2,[0,1])] in clone_nodes graph1;;*)
 
   ()
 
