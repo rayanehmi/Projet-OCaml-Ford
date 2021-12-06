@@ -1,5 +1,7 @@
 open Graph
 open Printf
+open Findpath
+open GraphEcart
 
 type path = string
 
@@ -38,6 +40,39 @@ let write_file path graph =
   close_out ff ;
   ()
 
+let export path graph =
+
+  (* Open a write-file. *)
+  let ff = open_out path in
+
+  (* Write in this file. *)
+  fprintf ff "digraph finite_state_machine {\n" ;
+
+  (* description *)
+  fprintf ff "rankdir=LR;\n" ;
+
+  fprintf ff "size=\"9\"\n" ;
+
+  fprintf ff "node [shape = star];\n" ;
+
+  (* enumeration des arcs *)
+  e_iter graph (fun id1 id2 label -> fprintf ff "%d -> %d [label = \"%s\"];\n" id1 id2 label );
+
+  (* petite astuce  *)
+  fprintf ff "}\n";
+
+  close_out ff ;
+  ()
+
+let export_path path ndlist = 
+  let ff = open_out path in 
+
+  List.iter (fun id -> fprintf ff "%d\n" id) ndlist ;
+
+  close_out ff ; 
+  ()
+
+
 (* Reads a line with a node. *)
 let read_node id graph line =
   try Scanf.sscanf line "n %f %f" (fun _ _ -> new_node graph id)
@@ -63,6 +98,7 @@ let read_comment graph line =
   with _ ->
     Printf.printf "Unknown line:\n%s\n%!" line ;
     failwith "from_file"
+
 
 let from_file path =
 
@@ -98,4 +134,3 @@ let from_file path =
 
   close_in infile ;
   final_graph
-

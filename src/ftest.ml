@@ -1,6 +1,8 @@
 open Gfile
 open Tools
 open Graph
+open Findpath
+(*open GraphEcart*)
 
 
 
@@ -27,10 +29,23 @@ let () =
   (* Open file *)
   let graph = from_file infile in
 
-  (* Rewrite the graph that has been read. *)
-  let () = write_file outfile graph in
+  let graph = gmap graph (fun x -> int_of_string x) in
 
-  (*let graph graph1 = [ (0, [1,2]), (1,[0,2]),(2,[0,1])] in clone_nodes graph1;;*)
+  (*let graph = find_path graph [] 0 7 in*)
+  let graph = gmap graph (fun x -> string_of_int x) in
+
+  (*let graph = graph_ecart graph in*)
+
+
+
+
+
+  (* Rewrite the graph that has been read. *)
+  let () = export outfile graph in
+
+
+
+
 
   ()
 
