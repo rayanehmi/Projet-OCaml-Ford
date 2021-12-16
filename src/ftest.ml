@@ -22,8 +22,8 @@ let () =
   and outfile = Sys.argv.(4)
 
   (* These command-line arguments are not used for the moment. *)
-  and _source = int_of_string Sys.argv.(2)
-  and _sink = int_of_string Sys.argv.(3)
+  and source = int_of_string Sys.argv.(2)
+  and sink = int_of_string Sys.argv.(3)
   in
 
   (* Open file *)
@@ -31,8 +31,14 @@ let () =
 
   let graph = gmap graph (fun x -> int_of_string x) in
 
-  (*let graph = find_path graph [] 0 7 in*)
-  let graph = gmap graph (fun x -> string_of_int x) in
+  let chemin = find_path graph source sink in
+
+  let cheminTransfo = List.map (fun x -> string_of_int x) chemin in 
+
+  let final = String.concat "," cheminTransfo in
+
+  let () = Printf.printf "path found : %s\n%!" final in
+  (*let graph = gmap graph (fun x -> string_of_int x) in*)
 
   (*let graph = graph_ecart graph in*)
 
@@ -41,7 +47,7 @@ let () =
 
 
   (* Rewrite the graph that has been read. *)
-  let () = export outfile graph in
+  (*let () = export outfile graph in*)
 
 
 

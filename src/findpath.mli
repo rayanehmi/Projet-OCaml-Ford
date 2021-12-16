@@ -12,9 +12,5 @@ type path = id list;;
 *)
 
 
-val find_path_core: int graph -> id list -> id -> id -> path option
-
-val find_path: int graph -> id list -> id -> id -> path option
-
-val traiter_out_arcs: 'a graph -> 'a out_arcs -> int list -> int -> path option
+val find_path: int graph -> id -> id -> path
 
