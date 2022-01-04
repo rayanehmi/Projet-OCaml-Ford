@@ -2,7 +2,8 @@ open Gfile
 open Tools
 open Graph
 open Findpath
-(*open GraphEcart*)
+open Fordfulk
+open Printf
 
 
 
@@ -30,28 +31,13 @@ let () =
   let graph = from_file infile in
 
   let graph = gmap graph (fun x -> int_of_string x) in
+  printf "test";
+  let graph = fordfulk graph 0 5 in
 
-  let chemin = find_path graph source sink in
-
-  let cheminTransfo = List.map (fun x -> string_of_int x) chemin in 
-
-  let final = String.concat "," cheminTransfo in
-
-  let () = Printf.printf "path found : %s\n%!" final in
-  (*let graph = gmap graph (fun x -> string_of_int x) in*)
-
-  (*let graph = graph_ecart graph in*)
-
-
-
-
+  let graphFinal = gmap graph (fun x -> string_of_int x) in
 
   (* Rewrite the graph that has been read. *)
-  (*let () = export outfile graph in*)
-
-
-
-
+  let () = export outfile graphFinal in
 
   ()
 

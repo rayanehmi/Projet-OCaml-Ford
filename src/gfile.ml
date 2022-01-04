@@ -129,7 +129,6 @@ let export path graph =
 
   (* enumeration des arcs *)
   e_iter graph (fun id1 id2 label -> fprintf ff "%d -> %d [label = \"%s\"];\n" id1 id2 label );
-
   (* petite astuce  *)
   fprintf ff "}\n";
 
