@@ -1,0 +1,5 @@
+%%%% Payer %%%%%
+%% payer id amount
+  payer 1 40
+  payer 2 10
+  payer 3 10
