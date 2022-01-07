@@ -35,8 +35,8 @@ let () =
    *            ###### FORDFULKERSON ######
    *            ###########################
    *)
-  (*
-  (* Permet de lire le fichier infile *)
+
+  (*  Permet de lire le fichier infile *)
   let graph = from_file infile in
 
   (* Transforme le graph de string vers int pour manipulation *)
@@ -50,7 +50,7 @@ let () =
 
   (* Affichage du graphe *)
   let () = export outfile updateGraphStringMapped in
-  *)
+
 
 
 
@@ -59,12 +59,16 @@ let () =
    *            ##### PAYMENT_SHARING #####
    *            ###########################
    *)
-
+  (*
   let graphFinal = createAllGraph infile in
 
   let updateGraphStringMapped = gmap graphFinal (fun x -> string_of_int x) in
 
   let () = export outfile updateGraphStringMapped in
 
+  (**
+   *            https://graphviz.org/Gallery/directed/fsm.html
+  *)
+  *)
   ()
 

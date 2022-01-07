@@ -18,7 +18,9 @@ val getListOfIdPayers : string -> int list
 
 val readAmount : string -> int list
 
-val setupArcBetweenPayers : int Graph.graph -> Graph.id list -> int Graph.graph
+val setupArcBetweenPayers : 'a -> 'b list -> ('b * 'b) list
+
+val setupArcBetweenPayersRec : int Graph.graph -> (Graph.id * Graph.id) list -> int Graph.graph
 
 (*val setupArcBetweenPayersReturn : int Graph.graph -> Graph.id list -> int Graph.graph*)
 

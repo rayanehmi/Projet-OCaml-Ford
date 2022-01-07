@@ -118,30 +118,18 @@ let readAmount file =
   in let amountResultList = loop amountList in close_in open_file; 
   amountResultList
 
+let setupArcBetweenPayers graph nodeList = 
+  let res = 
+    List.fold_left (fun acc x -> List.fold_left (fun acc y -> (x,y)::acc)acc nodeList) [] nodeList in 
+  List.rev res
 
-let rec setupArcBetweenPayers graph (nodeList1,nodeList2) = 
-  match (nodeList1,nodeList2) with
-  |([],_) -> graph
-  |(x1::rest,[]) -> setupArcBetweenPayers graph (rest,nodeList2)
-  |(x1::rest,x2::rest2) -> setupArcBetweenPayers (new_arc x1 x2 infinity) ((x1::rest),rest2);;
-
-
-(*(* Create arcs between all nodes of the partialGraph *)
-  let rec setupArcBetweenPayers graph nodeList = 
-  match nodeList with
+let rec setupArcBetweenPayersRec graph nodeListTuple = 
+  match nodeListTuple with
   |[] -> graph
-  |x1::rest -> gmap graph (fun x1 -> new_arc graph x1  infinity )
-  n_iter graph (fun x -> x); setupArcBetweenPayers graph
-  |x1::x2::rest -> setupArcBetweenPayers (new_arc graph x1 x2 infinity) rest ;;*)
-
-(*let rec setupArcBetweenPayersReturn graph nodelist = 
-  match nodelist with
-  |[] -> graph
-  |x1::[] -> graph
-  |x1::x2::rest -> setupArcBetweenPayers (new_arc graph x2 x1 infinity) (x2::rest);;*)
+  |(x1,x2)::rest when x1 != x2 -> setupArcBetweenPayersRec (new_arc graph x1 x2 infinity) rest 
+  |(x1,x2)::rest -> setupArcBetweenPayersRec graph rest
 
 
-(** 20 [40;10;10] *)
 let diff supposedPaymentAmount listPaydAmount = List.map (fun x -> x-supposedPaymentAmount) listPaydAmount
 
 
@@ -155,10 +143,14 @@ let rec graphSetArcsWithSS graph diffList accu = match diffList with
 
 let createAllGraph file = 
   let nodeGraph = readFile file in
+
   let totalAmountList = readAmount file in 
+
   let nodeIdList = getListOfIdPayers file in 
-  let nodeGraphWithArcs = setupArcBetweenPayers nodeGraph (nodeIdList,nodeIdList) in
-  (*let nodeGraphWithAllArcs = setupArcBetweenPayersReturn nodeGraphWithArcs nodeIdList in*)
+
+  let listeTuple = setupArcBetweenPayers nodeGraph nodeIdList in
+
+  let nodeGraphWithArcs = setupArcBetweenPayersRec nodeGraph listeTuple in
 
   let totalAmount = List.fold_left (fun accu x -> accu+x) 0 totalAmountList in
 
@@ -166,7 +158,7 @@ let createAllGraph file =
 
   let listPaymentDiff = diff supposedPayment totalAmountList in
 
-  let graphWithSourceAndSink = (new_node (new_node nodeGraphWithAllArcs incomeNode) outcomeNode) in
+  let graphWithSourceAndSink = (new_node (new_node nodeGraphWithArcs incomeNode) outcomeNode) in
 
   let graphUpdated = graphSetArcsWithSS graphWithSourceAndSink listPaymentDiff 0 in 
 
