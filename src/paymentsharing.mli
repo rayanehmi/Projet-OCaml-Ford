@@ -20,7 +20,7 @@ val readAmount : string -> int list
 
 val setupArcBetweenPayers : int Graph.graph -> Graph.id list -> int Graph.graph
 
-val setupArcBetweenPayersReturn : int Graph.graph -> Graph.id list -> int Graph.graph
+(*val setupArcBetweenPayersReturn : int Graph.graph -> Graph.id list -> int Graph.graph*)
 
 val diff : int -> int list -> int list
 
