@@ -11,8 +11,8 @@ edit:
 
 demo: build
 	@echo "\n==== EXECUTING ====\n"
-	./ftest.native graphs/graph1.txt 0 5 outfile
-	@echo "\n==== RESULT ==== (content of outfile) \n"
+	./ftest.native src/paymentfile.txt -1 -2 outfile
+	@echo "\n==== RESULT ==== (content of result) \n"
 	@cat outfile
 
 clean:

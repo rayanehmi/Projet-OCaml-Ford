@@ -5,6 +5,7 @@ open Findpath
 open Fordfulk
 open Printf
 open Option
+open Paymentsharing
 
 
 
@@ -28,32 +29,42 @@ let () =
   and sink = int_of_string Sys.argv.(3)
   in
 
-  (* Open file *)
 
-
+  (*
+   *            ###########################
+   *            ###### FORDFULKERSON ######
+   *            ###########################
+   *)
+  (*
+  (* Permet de lire le fichier infile *)
   let graph = from_file infile in
 
+  (* Transforme le graph de string vers int pour manipulation *)
   let graph = gmap graph (fun x -> int_of_string x) in
-  (*let updatedGraph = fordfulk graph 0 5 in*)
 
-  (** FIRST STEP ALGORITHM *)
-  (*let graphUpdate = addFlowToPath graph (find_path graph 0 5) (get (minLabel graph (find_path graph 0 5) (Some 10000)))  in
-    let graphUpdateReturn = addFlowToPathReturn graphUpdate(find_path graph 0 5) (get (minLabel graph (find_path graph 0 5) (Some 10000))) in
-    let labelPath = getLabelPath graphUpdateReturn (find_path graph 0 5) [] in
-    let () = List.iter (printf "Noeuds: %d\n") (find_path graph 0 5) in 
-    let () = List.iter (printf "Label: %d\n") labelPath in 
+  (* Applique l'algorithme de fordfulkerson sur le graph entre les noeuds source et puits défini *)
+  let updateGraph = fordfulk graph source sink in
 
-    (** SECOND STEP ALGORITHM *)
-    let path = find_path graphUpdateReturn 0 5 in
-    let () = List.iter (printf "Noeuds2: %d\n") (find_path graphUpdateReturn 0 5) in 
-    let () = List.iter (printf "Label2: %d\n") path in
-    let secondGraph = addFlowToPath graphUpdateReturn (find_path graphUpdateReturn 0 5) (get (minLabel graphUpdateReturn (find_path graphUpdateReturn 0 5) (Some 10000))) in
-    let secondGraphReturn = addFlowToPathReturn secondGraph(find_path graphUpdateReturn 0 5) (get (minLabel graphUpdateReturn (find_path graphUpdateReturn 0 5) (Some 10000))) in
-    let secondlabelPath = getLabelPath secondGraphReturn (find_path secondGraphReturn 0 5) [] in
-    let graphUpdateReturnStringMapped = gmap secondGraphReturn (fun x -> string_of_int x) in*)
-
-  let updateGraph = fordfulk graph 0 5 in
+  (* Transforme le graph de int vers string pour lecture des résultats *)
   let updateGraphStringMapped = gmap updateGraph (fun x -> string_of_int x) in
+
+  (* Affichage du graphe *)
   let () = export outfile updateGraphStringMapped in
+  *)
+
+
+
+  (*
+   *            ###########################
+   *            ##### PAYMENT_SHARING #####
+   *            ###########################
+   *)
+
+  let graphFinal = createAllGraph infile in
+
+  let updateGraphStringMapped = gmap graphFinal (fun x -> string_of_int x) in
+
+  let () = export outfile updateGraphStringMapped in
+
   ()
 

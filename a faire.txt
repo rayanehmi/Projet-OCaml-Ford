@@ -1,3 +1,0 @@
-1. Creer le graphe d'écart : tous les noeuds à zéro, flèches dans l'autre sens
-2. Changer le findpath pour ignorer les arcs dont le poids est zéro
-3. Implémenter l'algo Ford Fulkerson

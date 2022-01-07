@@ -4,8 +4,11 @@ open Gfile
 open Fordfulk
 open Printf
 
-let outcomeNode = (-1);; (* Our outcomeNode *)
-let incomeNode = (-2);; (* Our incomeNode *)
+type outcomeNode = Graph.id;;
+type incomeNode = Graph.id;;
+
+let outcomeNode = -1;; (* Our outcomeNode *)
+let incomeNode = -2;; (* Our incomeNode *)
 let infinity = 100000;; (* Infinity label for arc between payers *)
 
 
@@ -20,6 +23,7 @@ let readComment graph line =
 
 (* Read a given file and create the graph assiociate *)
 let readFile file = 
+  Printf.printf "je lis le fichier %s" file;
   let open_file = open_in file in
 
   let partialGraph = empty_graph in
@@ -115,11 +119,11 @@ let readAmount file =
   amountResultList
 
 (* Create arcs between all nodes of the partialGraph *)
-let rec setupArcBetweenPayers graph nodelist =
-  match nodelist with
+let rec setupArcBetweenPayers graph nodeList = 
+  match nodeList with
   |[] -> graph
-  |x1::[] -> graph
-  |x1::x2::rest -> setupArcBetweenPayers (new_arc graph x1 x2 infinity) (x2::rest);;
+  |x1::rest -> n_iter (fun graph x -> (new_arc graph x1 x infinity)); setupArcBetweenPayers graph rest
+  |x1::x2::rest -> setupArcBetweenPayers (new_arc graph x1 x2 infinity) rest ;;
 
 let rec setupArcBetweenPayersReturn graph nodelist = 
   match nodelist with
@@ -127,16 +131,37 @@ let rec setupArcBetweenPayersReturn graph nodelist =
   |x1::[] -> graph
   |x1::x2::rest -> setupArcBetweenPayers (new_arc graph x2 x1 infinity) (x2::rest);;
 
-let nodeGraph = readFile "paymentfile.txt"
-let totalAmountList = readAmount "paymentfile.txt"
-let nodeIdList = getListOfIdPayers "paymentfile.txt"
-let nodeGraphWithArcs = setupArcBetweenPayers nodeGraph nodeIdList
-let nodeGraphWithAllArcs = setupArcBetweenPayersReturn nodeGraphWithArcs nodeIdList
-
-
-let totalAmount = List.fold_left (fun accu x -> accu+x) 0 totalAmountList
-
-let supposedPayment = totalAmount / (List.length nodeIdList)
 
 (** 20 [40;10;10] *)
 let diff supposedPaymentAmount listPaydAmount = List.map (fun x -> x-supposedPaymentAmount) listPaydAmount
+
+
+let rec graphSetArcsWithSS graph diffList accu = match diffList with
+  |[] -> graph
+  |x1::rest when x1 > 0 -> graphSetArcsWithSS (new_arc graph (accu+1) incomeNode x1) rest (accu+1)
+  |x1::rest when x1 <= 0 -> graphSetArcsWithSS (new_arc graph outcomeNode (accu+1) (-x1)) rest (accu+1)
+
+
+(** APPEL FONCTION *)
+
+let createAllGraph file = 
+  let nodeGraph = readFile file in
+  let totalAmountList = readAmount file in 
+  let nodeIdList = getListOfIdPayers file in 
+  let nodeGraphWithArcs = setupArcBetweenPayers nodeGraph nodeIdList in
+  let nodeGraphWithAllArcs = setupArcBetweenPayersReturn nodeGraphWithArcs nodeIdList in
+
+  let totalAmount = List.fold_left (fun accu x -> accu+x) 0 totalAmountList in
+
+  let supposedPayment = totalAmount / (List.length nodeIdList) in
+
+  let listPaymentDiff = diff supposedPayment totalAmountList in
+
+  let graphWithSourceAndSink = (new_node (new_node nodeGraphWithAllArcs incomeNode) outcomeNode) in
+
+  let graphUpdated = graphSetArcsWithSS graphWithSourceAndSink listPaymentDiff 0 in 
+
+  let graphFinal = fordfulk graphUpdated outcomeNode incomeNode in graphFinal;
+
+
+

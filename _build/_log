@@ -1,63 +1,94 @@
 ### Starting build.
 # Target: src/ftest.ml.depends, tags: { extension:ml, file:src/ftest.ml, include, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/ftest.ml > src/ftest.ml.depends # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/ftest.ml > src/ftest.ml.depends
 # Target: src/findpath.mli.depends, tags: { extension:mli, file:src/findpath.mli, include, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/findpath.mli > src/findpath.mli.depends # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/findpath.mli > src/findpath.mli.depends
 # Target: src/graph.mli.depends, tags: { extension:mli, file:src/graph.mli, include, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/graph.mli > src/graph.mli.depends # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/graph.mli > src/graph.mli.depends
 # Target: src/graph.cmi, tags: { byte, compile, extension:mli, file:src/graph.mli, include, interf, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -I src -o src/graph.cmi src/graph.mli # cached
-# Target: src/findpath.cmi, tags: { byte, compile, extension:mli, file:src/findpath.mli, include, interf, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -I src -o src/findpath.cmi src/findpath.mli # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -I src -o src/graph.cmi src/graph.mli
 # Target: src/fordfulk.mli.depends, tags: { extension:mli, file:src/fordfulk.mli, include, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/fordfulk.mli > src/fordfulk.mli.depends # cached
-# Target: src/fordfulk.cmi, tags: { byte, compile, extension:mli, file:src/fordfulk.mli, include, interf, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -I src -o src/fordfulk.cmi src/fordfulk.mli # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/fordfulk.mli > src/fordfulk.mli.depends
 # Target: src/gfile.mli.depends, tags: { extension:mli, file:src/gfile.mli, include, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/gfile.mli > src/gfile.mli.depends # cached
-# Target: src/gfile.cmi, tags: { byte, compile, extension:mli, file:src/gfile.mli, include, interf, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -I src -o src/gfile.cmi src/gfile.mli # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/gfile.mli > src/gfile.mli.depends
+# Target: src/paymentsharing.mli.depends, tags: { extension:mli, file:src/paymentsharing.mli, include, ocaml, ocamldep, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/paymentsharing.mli > src/paymentsharing.mli.depends
 # Target: src/tools.mli.depends, tags: { extension:mli, file:src/tools.mli, include, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/tools.mli > src/tools.mli.depends # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/tools.mli > src/tools.mli.depends
+# Target: src/findpath.cmi, tags: { byte, compile, extension:mli, file:src/findpath.mli, include, interf, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -I src -o src/findpath.cmi src/findpath.mli
+# Target: src/fordfulk.cmi, tags: { byte, compile, extension:mli, file:src/fordfulk.mli, include, interf, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -I src -o src/fordfulk.cmi src/fordfulk.mli
+# Target: src/gfile.cmi, tags: { byte, compile, extension:mli, file:src/gfile.mli, include, interf, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -I src -o src/gfile.cmi src/gfile.mli
+# Target: src/paymentsharing.cmi, tags: { byte, compile, extension:mli, file:src/paymentsharing.mli, include, interf, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -I src -o src/paymentsharing.cmi src/paymentsharing.mli
 # Target: src/tools.cmi, tags: { byte, compile, extension:mli, file:src/tools.mli, include, interf, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -I src -o src/tools.cmi src/tools.mli # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -I src -o src/tools.cmi src/tools.mli
 # Target: src/ftest.cmo, tags: { byte, compile, extension:cmo, extension:ml, file:src/ftest.cmo, file:src/ftest.ml, implem, include, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -I src -o src/ftest.cmo src/ftest.ml # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -I src -o src/ftest.cmo src/ftest.ml
++ /mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlc.opt -c -I src -o src/ftest.cmo src/ftest.ml
+File "src/ftest.ml", line 18, characters 18-20:
+18 |       exit 0      ()
+                       ^^
+Warning 20: this argument will not be used by the function.
+File "src/ftest.ml", line 28, characters 6-12:
+28 |   and source = int_of_string Sys.argv.(2)
+           ^^^^^^
+Warning 26: unused variable source.
+File "src/ftest.ml", line 29, characters 6-10:
+29 |   and sink = int_of_string Sys.argv.(3)
+           ^^^^
+Warning 26: unused variable sink.
 # Target: src/findpath.ml.depends, tags: { extension:ml, file:src/findpath.ml, include, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/findpath.ml > src/findpath.ml.depends # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/findpath.ml > src/findpath.ml.depends
 # Target: src/graph.ml.depends, tags: { extension:ml, file:src/graph.ml, include, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/graph.ml > src/graph.ml.depends # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/graph.ml > src/graph.ml.depends
 # Target: src/graph.cmx, tags: { compile, extension:cmx, extension:ml, file:src/graph.cmx, file:src/graph.ml, implem, include, native, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -c -I src -o src/graph.cmx src/graph.ml # cached
-# Target: src/findpath.cmx, tags: { compile, extension:cmx, extension:ml, file:src/findpath.cmx, file:src/findpath.ml, implem, include, native, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -c -I src -o src/findpath.cmx src/findpath.ml # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -c -I src -o src/graph.cmx src/graph.ml
 # Target: src/fordfulk.ml.depends, tags: { extension:ml, file:src/fordfulk.ml, include, ocaml, ocamldep, quiet, traverse }
 /mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/fordfulk.ml > src/fordfulk.ml.depends
+# Target: src/findpath.cmx, tags: { compile, extension:cmx, extension:ml, file:src/findpath.cmx, file:src/findpath.ml, implem, include, native, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -c -I src -o src/findpath.cmx src/findpath.ml
 # Target: src/tools.ml.depends, tags: { extension:ml, file:src/tools.ml, include, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/tools.ml > src/tools.ml.depends # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/tools.ml > src/tools.ml.depends
 # Target: src/tools.cmx, tags: { compile, extension:cmx, extension:ml, file:src/tools.cmx, file:src/tools.ml, implem, include, native, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -c -I src -o src/tools.cmx src/tools.ml # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -c -I src -o src/tools.cmx src/tools.ml
 # Target: src/gfile.ml.depends, tags: { extension:ml, file:src/gfile.ml, include, ocaml, ocamldep, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/gfile.ml > src/gfile.ml.depends # cached
-# Target: src/gfile.cmx, tags: { compile, extension:cmx, extension:ml, file:src/gfile.cmx, file:src/gfile.ml, implem, include, native, ocaml, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -c -I src -o src/gfile.cmx src/gfile.ml # cached
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/gfile.ml > src/gfile.ml.depends
+# Target: src/paymentsharing.ml.depends, tags: { extension:ml, file:src/paymentsharing.ml, include, ocaml, ocamldep, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamldep.opt -modules src/paymentsharing.ml > src/paymentsharing.ml.depends
 # Target: src/fordfulk.cmx, tags: { compile, extension:cmx, extension:ml, file:src/fordfulk.cmx, file:src/fordfulk.ml, implem, include, native, ocaml, quiet, traverse }
 /mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -c -I src -o src/fordfulk.cmx src/fordfulk.ml
+# Target: src/gfile.cmx, tags: { compile, extension:cmx, extension:ml, file:src/gfile.cmx, file:src/gfile.ml, implem, include, native, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -c -I src -o src/gfile.cmx src/gfile.ml
+# Target: src/paymentsharing.cmx, tags: { compile, extension:cmx, extension:ml, file:src/paymentsharing.cmx, file:src/paymentsharing.ml, implem, include, native, ocaml, quiet, traverse }
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -c -I src -o src/paymentsharing.cmx src/paymentsharing.ml
++ /mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -c -I src -o src/paymentsharing.cmx src/paymentsharing.ml
+File "src/paymentsharing.ml", line 139, characters 49-289:
+139 | .................................................match diffList with
+140 |   |[] -> graph
+141 |   |x1::rest when x1 > 0 -> graphSetArcsWithSS (new_arc graph (accu+1) incomeNode x1) rest (accu+1)
+142 |   |x1::rest when x1 <= 0 -> graphSetArcsWithSS (new_arc graph outcomeNode (accu+1) (-x1)) rest (accu+1)
+Warning 8: this pattern-matching is not exhaustive.
+Here is an example of a case that is not matched:
+_::_
+(However, some guarded clause may match this value.)
 # Target: src/ftest.cmx, tags: { compile, extension:cmx, extension:ml, file:src/ftest.cmx, file:src/ftest.ml, implem, include, native, ocaml, quiet, traverse }
 /mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -c -I src -o src/ftest.cmx src/ftest.ml
 + /mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -c -I src -o src/ftest.cmx src/ftest.ml
-File "src/ftest.ml", line 17, characters 18-20:
-17 |       exit 0      ()
+File "src/ftest.ml", line 18, characters 18-20:
+18 |       exit 0      ()
                        ^^
 Warning 20: this argument will not be used by the function.
-File "src/ftest.ml", line 27, characters 6-12:
-27 |   and source = int_of_string Sys.argv.(2)
+File "src/ftest.ml", line 28, characters 6-12:
+28 |   and source = int_of_string Sys.argv.(2)
            ^^^^^^
 Warning 26: unused variable source.
-File "src/ftest.ml", line 28, characters 6-10:
-28 |   and sink = int_of_string Sys.argv.(3)
+File "src/ftest.ml", line 29, characters 6-10:
+29 |   and sink = int_of_string Sys.argv.(3)
            ^^^^
 Warning 26: unused variable sink.
 # Target: src/ftest.native, tags: { dont_link_with, extension:native, file:src/ftest.native, include, link, native, ocaml, program, quiet, traverse }
-/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -I src src/graph.cmx src/findpath.cmx src/tools.cmx src/fordfulk.cmx src/gfile.cmx src/ftest.cmx -o src/ftest.native
+/mnt/commetud/GEI/OCaml/.opam/4.08.1/bin/ocamlopt.opt -I src src/graph.cmx src/findpath.cmx src/tools.cmx src/fordfulk.cmx src/gfile.cmx src/paymentsharing.cmx src/ftest.cmx -o src/ftest.native
 # Compilation successful.
