@@ -59,7 +59,7 @@ let () =
    *            ##### PAYMENT_SHARING #####
    *            ###########################
    *)
-  (*
+(*
   let graphFinal = createAllGraph infile in
 
   let updateGraphStringMapped = gmap graphFinal (fun x -> string_of_int x) in
@@ -69,6 +69,6 @@ let () =
   (**
    *            https://graphviz.org/Gallery/directed/fsm.html
   *)
-  *)
+*)
   ()
 
